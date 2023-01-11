@@ -4,7 +4,7 @@ import NextAuth from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
 // import EmailProvider from 'next-auth/providers/email'
 
-import { MongoDBAdapter } from "next-auth/providers/mongodb-adapter"
+import { MongoDBAdapter } from "@next-auth/mongodb-adapter"
 
 export default NextAuth({
     secret: process.env.SECRET,
