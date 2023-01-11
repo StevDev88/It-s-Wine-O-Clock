@@ -4,9 +4,11 @@ import NextAuth from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
 // import EmailProvider from 'next-auth/providers/email'
 
+import { MongoDBAdapter } from "next-auth/providers/mongodb-adapter"
+
 export default NextAuth({
     secret: process.env.SECRET,
-    
+
   providers: [
     // OAuth authentication providers...
 
