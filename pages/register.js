@@ -7,7 +7,7 @@ const register = () => {
     const [ password, setPassword] = useState('')
     const submitHandler = async (e) => {
         e.preventDefault()
-        console.log(e)
+        console.log(email, password)
     }
     return (
         <>
