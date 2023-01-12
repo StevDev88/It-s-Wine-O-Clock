@@ -5,6 +5,10 @@ import { useState } from "react"
 const register = () => {
     const [ email, setEmail ] = useState('')
     const [ password, setPassword] = useState('')
+    const submitHandler = async (e) => {
+        e.preventDefault()
+        console.log(e)
+    }
     return (
         <>
         <form onSubmit={submitHandler}>
