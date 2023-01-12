@@ -16,10 +16,10 @@ const register = () => {
             },
         }
 
-        const { data } = await axios.post(`/api/userRegister`, {email, password} )
+        const { data } = await axios.post(`/api/userRegister`, {email, password}, config )
 
     }
-    
+
     return (
         <>
         <form onSubmit={submitHandler}>
