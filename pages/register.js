@@ -1,4 +1,5 @@
 import { useState } from "react"
+import axios from "axios"
 
 // import styles from '../styles/register.module.css'
 
@@ -7,7 +8,18 @@ const register = () => {
     const [ password, setPassword] = useState('')
     const submitHandler = async (e) => {
         e.preventDefault()
+
+        const config = {
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${userInfo.token}`
+            },
+        }
+
+        const { data } = await axios.post(`/api/userRegister`, {email, password} )
+
     }
+    
     return (
         <>
         <form onSubmit={submitHandler}>
