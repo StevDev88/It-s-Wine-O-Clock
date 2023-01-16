@@ -3,5 +3,9 @@ import connectDB from "../../connectDB"
 connectDB()
 
 export default async (req, res) => {
-    console.log(req.method)
+    if (req.method === 'POST') {
+        const { email, password } = req.body
+
+        console.log(email, password)
+    }
 }
