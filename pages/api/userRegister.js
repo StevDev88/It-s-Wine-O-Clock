@@ -9,6 +9,7 @@ export default async (req, res) => {
     try {
         if (req.method === 'POST') {
             const { email, password } = req.body
+            const user = await User.findOne({email: email})
 
             console.log(email, password)
         
