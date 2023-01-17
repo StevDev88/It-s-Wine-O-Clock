@@ -11,5 +11,7 @@ export default async (req, res) => {
 
     const newUser = await new User({ email, password }).save()
 
+    console.log(newUser)
+
     }
 }
