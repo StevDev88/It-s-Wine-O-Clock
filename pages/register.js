@@ -15,7 +15,9 @@ const register = () => {
             },
         }
 
-        const { data } = await axios.post(`/api/userRegister`, {email, password}, config )
+        const { data } = await axios.post(`/api/userRegister`, {email, password}, config)
+
+        console.log(data)
 
     }
 
