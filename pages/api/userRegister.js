@@ -1,5 +1,6 @@
 import connectDB from "../../connectDB"
 import User from '../../models/userModel'
+import bcrypt from "bcryptjs"
 
 connectDB()
 
@@ -8,10 +9,11 @@ export default async (req, res) => {
         const { email, password } = req.body
 
         console.log(email, password)
+    
+        const hashedPassword = await bcrypt.hash(password, 12)
+        const newUser = await new User({ email: email, password: hashedPassword }).save()
 
-    const newUser = await new User({ email, password }).save()
-
-    console.log(newUser)
+        console.log(newUser)
 
     }
 }
