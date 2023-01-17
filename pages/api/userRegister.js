@@ -11,6 +11,10 @@ export default async (req, res) => {
             const { email, password } = req.body
             const user = await User.findOne({email: email})
 
+            if (user) {
+                res.status(422).json({message: "User already exists."})
+            }
+
             console.log(email, password)
         
             const hashedPassword = await bcrypt.hash(password, 12)
