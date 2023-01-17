@@ -13,7 +13,6 @@ export default async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 12)
         const newUser = await new User({ email: email, password: hashedPassword }).save()
 
-        console.log(newUser)
-
+        res.status(200).json({ message: "Sign Up Success"})
     }
 }
