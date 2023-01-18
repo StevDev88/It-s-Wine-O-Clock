@@ -6,7 +6,9 @@ connectDB()
 
 export default async (req, res) => {
 
-    console.log(req.method)
+    const { email, password } = req.body
+
+    console.log({ email, password })
 
     // try {
     //     if (req.method === 'POST') {
