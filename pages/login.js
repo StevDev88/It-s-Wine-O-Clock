@@ -1,5 +1,6 @@
 import { useState } from "react"
 import axios from "axios"
+import cookie from "js-cookie"
 
 // import styles from '../styles/login.module.css'
 
@@ -21,7 +22,8 @@ const login = () => {
             config
             )
 
-        console.log(data)
+        cookie.set('token', data.token)
+        cookie.set('user', data.user)
 
     }
 
