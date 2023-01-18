@@ -6,29 +6,27 @@ connectDB()
 
 export default async (req, res) => {
 
-    const { email, password } = req.body
+    try {
+        if (req.method === 'POST') {
+            const { email, password } = req.body
+            const user = await User.findOne({email: email})
 
-    console.log({ email, password })
+            if (!user) {
+                res.status(422).json({message: "User does not exist."})
+            }
 
-    // try {
-    //     if (req.method === 'POST') {
-    //         const { email, password } = req.body
-    //         const user = await User.findOne({email: email})
-
-    //         if (user) {
-    //             res.status(422).json({message: "User already exists."})
-    //         }
-
-    //         console.log(email, password)
+            console.log(email, password)
         
-    //         const hashedPassword = await bcrypt.hash(password, 12)
-    //         const newUser = await new User({
-    //             email: email,
-    //             password: hashedPassword
-    //         }).save()
-    //         res.status(200).json({ message: "Sign Up Success"})
-    //     }
-    // } catch (error) {
-    //     console.log(error)
-    // }
+            const doMatch = await bcrypt.compare(password, user.password)
+
+            if (!doMatch) {
+                res.status(400).json({ message: "Incorrect credentials."})
+            } else {
+                const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, {expiresIn: '7d',
+                })
+            }
+        }
+    } catch (error) {
+        console.log(error)
+    }
 }
