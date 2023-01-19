@@ -22,6 +22,8 @@ const login = () => {
             config
             )
 
+        console.log(data)
+
         cookie.set('token', data.token)
         cookie.set('user', data.user)
 
