@@ -30,7 +30,7 @@ export default async (req, res) => {
                 
                 res.status(201).json({ message: "Login success", user, token }) 
             }
-        }
+    }
     catch (error) {
         console.log(error)
     }
