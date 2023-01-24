@@ -1,3 +1,4 @@
+import { Container } from "@mui/material"
 import Header from "./Header"
 
 // import styles from '../styles/Layout.module.css'
@@ -5,8 +6,10 @@ import Header from "./Header"
 const Layout = ({ children }) => {
     return (
         <>
+        <Container>
             <Header />
             { children }
+        </Container>
         </>
     )
 }
