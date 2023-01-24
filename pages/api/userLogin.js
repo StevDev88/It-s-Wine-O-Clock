@@ -13,25 +13,25 @@ export default async (req, res) => {
         if (!email || !password) {
             return res.status(422).json({ error: "Please fill out all fields."})
         }
-            const user = await User.findOne({email})
 
-            if (!user) {
-                res.status(422).json({message: "User does not exist."})
-            }
+        const user = await User.findOne({email})
 
-            console.log(email, password)
+        if (!user) {
+            res.status(422).json({message: "User does not exist."})
+        }
         
-            const doMatch = await bcrypt.compare(password, user.password)
+        const doMatch = await bcrypt.compare(password, user.password)
 
-            if (!doMatch) {
-                res.status(400).json({ message: "Incorrect credentials."})
+        if (!doMatch) {
+            res.status(401).json({ message: "Invalid credentials."})
             } else {
                 const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, {expiresIn: '7d',
                 })
+                
                 res.status(201).json({ message: "Login success", user, token }) 
             }
         }
-    } catch (error) {
+    catch (error) {
         console.log(error)
     }
 }
