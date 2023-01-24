@@ -7,10 +7,11 @@ connectDB()
 
 export default async (req, res) => {
 
+    const { email, password } = req.body
+
     try {
-        if (req.method === 'POST') {
-            const { email, password } = req.body
-            const user = await User.findOne({email: email})
+        if (!email || !password) {
+            const user = await User.findOne({email})
 
             if (!user) {
                 res.status(422).json({message: "User does not exist."})
