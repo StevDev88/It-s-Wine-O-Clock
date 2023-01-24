@@ -1,6 +1,36 @@
 import Layout from "@/components/Layout"
 import { SessionProvider } from "next-auth/react"
 
+import * as React from 'react';
+import Head from 'next/head';
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import { CacheProvider } from '@emotion/react';
+import theme from '../config/theme';
+import createEmotionCache from '../config/createEmotionCache';
+
+// Client-side cache, shared for the whole session of the user in the browser.
+const clientSideEmotionCache = createEmotionCache();
+
+
+export default function MyApp({ Component, emotionCache = clientSideEmotionCache, pageProps: { session, ...pageProps } }) {
+  return (
+    <CacheProvider value={emotionCache}>
+        <Head>
+            <meta name="viewport" content="initial-scale=1, width=device-width" />
+        </Head>
+        <SessionProvider session={session}>
+            <ThemeProvider theme={theme}>
+                <CssBaseline />
+                    <Layout>
+                        <Component {...pageProps}/>
+                    </Layout>
+            </ThemeProvider>
+        </SessionProvider>
+    </CacheProvider>
+  );
+}
+
 // Version 1, working setup + MUI CSS Baseline added
 
 // import CssBaseline from '@mui/material/CssBaseline';
@@ -61,33 +91,3 @@ import { SessionProvider } from "next-auth/react"
 //   pageProps: PropTypes.object.isRequired,
 // };
 
-
-import * as React from 'react';
-import Head from 'next/head';
-import { ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import { CacheProvider } from '@emotion/react';
-import theme from '../config/theme';
-import createEmotionCache from '../config/createEmotionCache';
-
-// Client-side cache, shared for the whole session of the user in the browser.
-const clientSideEmotionCache = createEmotionCache();
-
-
-export default function MyApp({ Component, emotionCache = clientSideEmotionCache, pageProps: { session, ...pageProps } }) {
-  return (
-    <CacheProvider value={emotionCache}>
-        <Head>
-            <meta name="viewport" content="initial-scale=1, width=device-width" />
-        </Head>
-        <SessionProvider session={session}>
-            <ThemeProvider theme={theme}>
-                <CssBaseline />
-                    <Layout>
-                        <Component {...pageProps}/>
-                    </Layout>
-            </ThemeProvider>
-        </SessionProvider>
-    </CacheProvider>
-  );
-}
