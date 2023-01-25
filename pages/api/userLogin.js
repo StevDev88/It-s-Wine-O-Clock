@@ -30,7 +30,7 @@ export default async (req, res) => {
 
                 const { email, _id } = user
                 
-                res.status(201).json({ message: "Login success", user: email, _id, token }) 
+                res.status(201).json({ message: "Login success", user: { email, _id }, token }) 
             }
     }
     catch (error) {
