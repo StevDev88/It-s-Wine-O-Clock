@@ -24,7 +24,7 @@ function ResponsiveAppBar() {
 
     //const user = cookies?.user ? JSON.parse(cookies.user) : ""
 
-    console.log(cookies)
+    console.log("COOKIES:", cookies)
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
