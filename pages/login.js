@@ -24,8 +24,8 @@ const login = () => {
 
         console.log(data)
 
-        cookie.set('token', data.token)
-        cookie.set('user', data.user)
+        cookie.set('token', data?.token)
+        cookie.set('user', JSON.stringify(data?.user))
 
     }
 
