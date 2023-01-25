@@ -22,7 +22,7 @@ const login = () => {
             config
             )
 
-        console.log(data)
+        console.log('DATA:', data)
 
         cookie.set('token', data?.token)
         cookie.set('user', JSON.stringify(data?.user))
