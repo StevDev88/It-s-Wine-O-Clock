@@ -12,9 +12,12 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+
+import Link from 'next/link';
+
 import { parseCookies } from 'nookies';
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['Login', 'Register', 'Logout'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
@@ -99,7 +102,13 @@ function ResponsiveAppBar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography
+                   textAlign="center">
+                    <Link href={page} >
+                    {page}
+                    </Link>
+                    
+                    </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -136,7 +145,7 @@ function ResponsiveAppBar() {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            { user && user.email}
+            Welcome, { user && user.email}! {}
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
