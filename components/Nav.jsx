@@ -17,7 +17,7 @@ import Link from 'next/link';
 
 import { parseCookies } from 'nookies';
 
-const pages = ['Login', 'Register', 'Logout'];
+const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
@@ -102,13 +102,7 @@ function ResponsiveAppBar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography
-                   textAlign="center">
-                    <Link href={page} >
-                    {page}
-                    </Link>
-                    
-                    </Typography>
+                  <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -139,15 +133,19 @@ function ResponsiveAppBar() {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-              <Link href={page}>
                 {page}
-              </Link>
               </Button>
             ))}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            Welcome, { user && user.email}! {}
+
+
+
+            {/* Welcome {user && user.email}! {} */}
+
+
+
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
