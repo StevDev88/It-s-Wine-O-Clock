@@ -114,15 +114,7 @@ function ResponsiveAppBar() {
             variant="h5"
             noWrap
             component={NextLink}
-
-
-
-
             href="/"
-
-
-
-        
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
