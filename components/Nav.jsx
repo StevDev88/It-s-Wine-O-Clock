@@ -12,9 +12,6 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-
-import Link from 'next/link';
-
 import { parseCookies } from 'nookies';
 
 const pages = ['Products', 'Pricing', 'Blog'];
@@ -142,7 +139,7 @@ function ResponsiveAppBar() {
 
 
 
-            {/* Welcome {user && user.email}! {} */}
+            {user && user.email}
 
 
 
