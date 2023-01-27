@@ -55,18 +55,11 @@ function ResponsiveAppBar() {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Typography
+          <Link
             variant="h6"
             noWrap
-            component="a"
-
-
-
-            href=""
-
-
-
-
+            component={ NextLink }
+            href="/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -78,7 +71,7 @@ function ResponsiveAppBar() {
             }}
           >
             Wine O'Clock
-          </Typography>
+          </Link>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -117,15 +110,15 @@ function ResponsiveAppBar() {
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-          <Typography
+          <Link
             variant="h5"
             noWrap
-            component="a"
+            component={NextLink}
 
 
 
 
-            href=""
+            href="/"
 
 
 
@@ -142,7 +135,7 @@ function ResponsiveAppBar() {
             }}
           >
             Wine O'Clock
-          </Typography>
+          </Link>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
