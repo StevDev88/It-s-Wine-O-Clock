@@ -7,8 +7,8 @@ import styles from '../styles/Layout.module.css'
 const Layout = ({ children }) => {
     return (
         <>
-        <div className={styles.div}>
-            <Container>
+        <div>
+            <Container className={styles.div}>
                 <Header />
                 { children }
             </Container>
