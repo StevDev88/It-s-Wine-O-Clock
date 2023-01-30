@@ -20,7 +20,8 @@ import { parseCookies } from 'nookies';
 import NextLink from 'next/link'
 import { Link } from '@mui/material';
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['Login', 'Register', 'Home'];
+const pageUrls = ['login', 'register', '/']
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
@@ -103,9 +104,15 @@ function ResponsiveAppBar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
+              {pages.map((page, index) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <Link
+                textAlign= "center"
+                component={NextLink}
+                href={pageUrls[index]}
+                >
+                    {page}
+                </Link>
                 </MenuItem>
               ))}
             </Menu>
@@ -130,19 +137,19 @@ function ResponsiveAppBar() {
             Wine O'Clock
           </Link>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
+            {pages.map((page, index) => (
+                <Link
+                component={NextLink}
+                href={pageUrls[index]}
+                >
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <Link
-                component={NextLink}
-                href={page}
-                >
                     {page}
-                </Link>
               </Button>
+                </Link>
             ))}
           </Box>
           <Box sx={{ flexGrow: 0 }}>
