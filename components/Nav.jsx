@@ -105,15 +105,15 @@ function ResponsiveAppBar() {
               }}
             >
               {pages.map((page, index) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
                 <Link
                 textAlign= "center"
                 component={NextLink}
                 href={pageUrls[index]}
                 >
+                <MenuItem key={page} onClick={handleCloseNavMenu}>
                     {page}
-                </Link>
                 </MenuItem>
+                </Link>
               ))}
             </Menu>
           </Box>
