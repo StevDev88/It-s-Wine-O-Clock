@@ -140,7 +140,8 @@ function ResponsiveAppBar() {
                 component={NextLink}
                 href={page}
                 >
-                {page}</Link>
+                    {page}
+                </Link>
               </Button>
             ))}
           </Box>
