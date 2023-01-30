@@ -136,7 +136,11 @@ function ResponsiveAppBar() {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                <Link
+                component={NextLink}
+                href={page}
+                >
+                {page}</Link>
               </Button>
             ))}
           </Box>
