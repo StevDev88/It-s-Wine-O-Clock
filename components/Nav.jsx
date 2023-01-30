@@ -105,7 +105,7 @@ function ResponsiveAppBar() {
               }}
             >
               {pages.map((page, index) => (
-                <Link
+                <Link key={pageUrls[index]}
                 underline='hover'
                 textAlign= "center"
                 component={NextLink}
@@ -140,6 +140,7 @@ function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page, index) => (
                 <Link
+                key={pageUrls[index]}
                 component={NextLink}
                 href={pageUrls[index]}
                 >
