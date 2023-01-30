@@ -106,6 +106,7 @@ function ResponsiveAppBar() {
             >
               {pages.map((page, index) => (
                 <Link
+                underline='hover'
                 textAlign= "center"
                 component={NextLink}
                 href={pageUrls[index]}
@@ -147,7 +148,7 @@ function ResponsiveAppBar() {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                    {page}
+                {page}
               </Button>
                 </Link>
             ))}
