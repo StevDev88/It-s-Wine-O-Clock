@@ -14,21 +14,21 @@ const clientSideEmotionCache = createEmotionCache();
 
 
 export default function MyApp({ Component, emotionCache = clientSideEmotionCache, pageProps: { session, ...pageProps } }) {
-  return (
-    <CacheProvider value={emotionCache}>
-        <Head>
-            <meta name="viewport" content="initial-scale=1, width=device-width" />
-        </Head>
-        <SessionProvider session={session}>
-            <ThemeProvider theme={theme}>
-                <CssBaseline />
+    return (
+        <CacheProvider value={emotionCache}>
+            <Head>
+                <meta name="viewport" content="initial-scale=1, width=device-width" />
+            </Head>
+            <SessionProvider session={session}>
+                <ThemeProvider theme={theme}>
+                    <CssBaseline />
                     <Layout>
-                        <Component {...pageProps}/>
+                        <Component {...pageProps} />
                     </Layout>
-            </ThemeProvider>
-        </SessionProvider>
-    </CacheProvider>
-  );
+                </ThemeProvider>
+            </SessionProvider>
+        </CacheProvider>
+    );
 }
 
 // Version 1, working setup + MUI CSS Baseline added
