@@ -22,8 +22,8 @@ const userSchema = mongoose.Schema({
     // profilePicture: {
     //  type: String,
     // }
-  })
+})
 
-  // const User = mongoose.model('User', userSchema)
+// const User = mongoose.model('User', userSchema)
 
-  export default mongoose.models.User || mongoose.model('User', userSchema)
+export default mongoose.models.User || mongoose.model('User', userSchema)
