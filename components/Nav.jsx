@@ -20,8 +20,8 @@ import { parseCookies } from 'nookies';
 import NextLink from 'next/link'
 import { Link } from '@mui/material';
 
-const pages = ['Login', 'Register', 'Home'];
-const pageUrls = ['login', 'register', '/']
+const pages = ['Login', 'Sign Up', 'My Wines', 'Home'];
+const pageUrls = ['login', 'register', '', '/']
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
