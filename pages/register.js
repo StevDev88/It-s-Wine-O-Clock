@@ -4,8 +4,8 @@ import axios from "axios"
 // import styles from '../styles/register.module.css'
 
 const register = () => {
-    const [ email, setEmail ] = useState('')
-    const [ password, setPassword] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
     const submitHandler = async (e) => {
         e.preventDefault()
 
@@ -15,7 +15,7 @@ const register = () => {
             },
         }
 
-        const { data } = await axios.post(`/api/userRegister`, {email, password}, config)
+        const { data } = await axios.post(`/api/userRegister`, { email, password }, config)
 
         console.log(data)
 
@@ -23,12 +23,12 @@ const register = () => {
 
     return (
         <>
-        <form onSubmit={submitHandler}>
-        <h1>Register</h1>        
-        <input value={email} onChange={(e)=>setEmail(e.target.value)} />
-        <input value={password} onChange={(e)=>setPassword(e.target.value)} />
-        <button type="submit">Register</button>
-        </form>
+            <form onSubmit={submitHandler}>
+                <h1>Register</h1>
+                <input value={email} onChange={(e) => setEmail(e.target.value)} />
+                <input value={password} onChange={(e) => setPassword(e.target.value)} />
+                <button type="submit">Register</button>
+            </form>
         </>
     )
 }
