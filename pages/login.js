@@ -5,8 +5,8 @@ import cookie from "js-cookie"
 // import styles from '../styles/login.module.css'
 
 const login = () => {
-    const [ email, setEmail ] = useState('')
-    const [ password, setPassword] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
     const submitHandler = async (e) => {
         e.preventDefault()
 
@@ -18,9 +18,9 @@ const login = () => {
 
         const { data } = await axios.post(
             `/api/userLogin`,
-            {email, password},
+            { email, password },
             config
-            )
+        )
 
         console.log('DATA:', data)
 
@@ -31,12 +31,12 @@ const login = () => {
 
     return (
         <>
-        <form onSubmit={submitHandler}>
-        <h1>Log In</h1>        
-        <input value={email} onChange={(e)=>setEmail(e.target.value)} />
-        <input value={password} onChange={(e)=>setPassword(e.target.value)} />
-        <button type="submit">Log In</button>
-        </form>
+            <form onSubmit={submitHandler}>
+                <h1>Log In</h1>
+                <input value={email} onChange={(e) => setEmail(e.target.value)} />
+                <input value={password} onChange={(e) => setPassword(e.target.value)} />
+                <button type="submit">Log In</button>
+            </form>
         </>
     )
 }
