@@ -1,4 +1,4 @@
-// import styles from '../styles/UserEmail.module.css'
+import styles from '../styles/UserEmail.module.css'
 
 import { parseCookies } from 'nookies';
 
@@ -10,7 +10,9 @@ const UserEmail = () => {
 
     return (
         <>
-            {user && user.email}
+            <div>
+                {user && user.email}
+            </div>
         </>
     )
 }

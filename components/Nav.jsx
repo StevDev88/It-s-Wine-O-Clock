@@ -160,18 +160,7 @@ function ResponsiveAppBar() {
                             </Link>
                         ))}
                     </Box>
-                    <Typography>
-
-
-
-                        <UserEmail />
-
-                        {/* {user && user.email} */}
-
-
-
-
-                    </Typography>
+                    <UserEmail />
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
