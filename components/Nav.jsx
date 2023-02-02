@@ -14,6 +14,13 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
 
+import dynamic from 'next/dynamic'
+
+const UserEmail = dynamic(() => import('../components/UserEmail'), {
+    ssr: false,
+})
+
+
 import { parseCookies } from 'nookies';
 
 
@@ -153,6 +160,18 @@ function ResponsiveAppBar() {
                             </Link>
                         ))}
                     </Box>
+                    <Typography>
+
+
+
+                        <UserEmail />
+
+                        {/* {user && user.email} */}
+
+
+
+
+                    </Typography>
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
