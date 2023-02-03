@@ -16,7 +16,7 @@ import NextLink from 'next/link'
 import { Link } from '@mui/material';
 
 import { parseCookies } from 'nookies';
-import { useSession, signIn, signOut } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 
 import dynamic from 'next/dynamic'
 
