@@ -12,7 +12,10 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import NextLink from 'next/link'
+import { Link } from '@mui/material';
 
+import { parseCookies } from 'nookies';
 
 import dynamic from 'next/dynamic'
 
@@ -20,12 +23,6 @@ const UserEmail = dynamic(() => import('../components/UserEmail'), {
     ssr: false,
 })
 
-
-import { parseCookies } from 'nookies';
-
-
-import NextLink from 'next/link'
-import { Link } from '@mui/material';
 
 const pages = ['Login', 'Sign Up', 'My Wines', 'Home'];
 const pageUrls = ['login', 'register', '', '/']
