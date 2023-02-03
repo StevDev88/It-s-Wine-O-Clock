@@ -32,6 +32,9 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 function ResponsiveAppBar() {
 
     const cookies = parseCookies()
+    const session = useSession()
+
+    console.log('SESSION:', session)
 
 
     const user = cookies?.user ? JSON.parse(cookies.user) : ""
