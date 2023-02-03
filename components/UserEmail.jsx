@@ -10,7 +10,7 @@ const UserEmail = () => {
 
     return (
         <>
-            <div>
+            <div className={styles.div}>
                 {user && user.email}
             </div>
         </>
