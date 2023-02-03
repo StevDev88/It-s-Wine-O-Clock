@@ -7,6 +7,9 @@ import cookie from "js-cookie"
 // import styles from '../styles/login.module.css'
 
 const login = () => {
+
+
+
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const submitHandler = async (e) => {
