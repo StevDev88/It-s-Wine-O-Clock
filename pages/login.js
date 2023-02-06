@@ -35,11 +35,12 @@ const login = () => {
             <>
                 Signed in as {session.user.email} <br />
                 <button onClick={() => signOut()}>Sign out</button>
-                )
+            </>
+        )
     }
-                return (
-                <>
-                    Not signed in <br />
+    return (
+                </>
+    Not signed in <br />
                     <form onSubmit={submitHandler}>
                         <h1>Log In</h1>
                         <input value={email} onChange={(e) => setEmail(e.target.value)} />
@@ -47,10 +48,6 @@ const login = () => {
                         <button type="submit">Log In</button>
                     </form>
                 </>
-                <button onClick={() => signIn('google')}>Sign in</button>
-            </>
-        )
+    <button onClick={() => signIn('google')}>Sign in</button>
 
-    }
-
-    export default login
+export default login
