@@ -4,10 +4,12 @@
 // import styles from '@/styles/Home.module.css'
 // import styles from '../styles/index.module.css'
 
-export default function Component() {
-    <>
-        <p>
-            Home Page
-        </p>
-    </>
+export default function home() {
+    return (
+        <>
+            <p>
+                Home Page
+            </p>
+        </>
+    )
 }
