@@ -4,7 +4,6 @@ import cookie from "js-cookie"
 import { useState } from "react"
 import { useSession, signIn, signOut } from "next-auth/react"
 
-
 // import styles from '../styles/login.module.css'
 
 const login = () => {
