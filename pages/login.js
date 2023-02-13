@@ -34,7 +34,7 @@ const login = () => {
         return (
             <>
                 Signed in as {session.user.email} <br />
-                <button onClick={() => signOut()}>Sign out</button>
+                <button onClick={logOutHandler}>Sign out</button>
             </>
         )
     }
