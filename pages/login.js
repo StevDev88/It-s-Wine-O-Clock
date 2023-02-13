@@ -38,7 +38,6 @@ const login = () => {
         cookie.remove('user')
     }
 
-
     if (session) {
         return (
             <>
