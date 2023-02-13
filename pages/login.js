@@ -30,6 +30,15 @@ const login = () => {
         cookie.set('user', JSON.stringify(data?.user))
     }
 
+    const logOutHandler = async () => {
+        if (session) {
+            signOut()
+        }
+        cookie.remove('token')
+        cookie.remove('user')
+    }
+
+
     if (session) {
         return (
             <>
