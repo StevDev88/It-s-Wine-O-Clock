@@ -41,16 +41,20 @@ const login = () => {
     return (
         <>
             Not signed in
+
             <br />
 
             <form onSubmit={submitHandler}>
                 <h1>Log In</h1>
                 <input value={email} onChange={(e) => setEmail(e.target.value)} />
                 <input value={password} onChange={(e) => setPassword(e.target.value)} />
+                <br />
                 <button type="submit">Log In</button>
             </form>
 
-            <button onClick={() => signIn('google')}>Sign in</button>
+            <br />
+
+            <button onClick={() => signIn('google')}>Sign in with Google</button>
         </>
     )
 }
