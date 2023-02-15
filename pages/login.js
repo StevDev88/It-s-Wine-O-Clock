@@ -62,7 +62,7 @@ const login = () => {
 
             <br />
 
-            <button onClick={() => signInNextAuth('google')}>Sign in with Google</button>
+            <button onClick={() => signIn('google')}>Sign in with Google</button>
         </>
     )
 }
