@@ -2,7 +2,7 @@ import axios from "axios"
 import cookie from "js-cookie"
 
 import { useState } from "react"
-import { useSession, signIn, signOut } from "next-auth/react"
+import { useSession, signIn as signInNextAuth, signOut } from "next-auth/react"
 
 // import styles from '../styles/login.module.css'
 
@@ -62,7 +62,7 @@ const login = () => {
 
             <br />
 
-            <button onClick={() => signIn('google')}>Sign in with Google</button>
+            <button onClick={() => signInNextAuth('google')}>Sign in with Google</button>
         </>
     )
 }
