@@ -2,6 +2,7 @@ import axios from "axios"
 import cookie from "js-cookie"
 
 import { useState } from "react"
+import { useRouter } from "next/router"
 import { useSession, signIn, signOut } from "next-auth/react"
 
 // import styles from '../styles/login.module.css'
@@ -10,6 +11,8 @@ const login = () => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+
+    const router = useRouter()
 
     const { data: session } = useSession()
 
@@ -28,6 +31,7 @@ const login = () => {
         cookie.set('token', data?.token)
         cookie.set('user', JSON.stringify(data?.user))
 
+        router.push('/')
     }
 
     const logOutHandler = async () => {
