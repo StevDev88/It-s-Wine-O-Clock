@@ -2,7 +2,7 @@ import axios from "axios"
 import cookie from "js-cookie"
 
 import { useState } from "react"
-import { useSession, signIn as signInNextAuth, signOut } from "next-auth/react"
+import { useSession, signIn, signOut } from "next-auth/react"
 
 // import styles from '../styles/login.module.css'
 
@@ -11,7 +11,7 @@ const login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    const { session, signIn, signOut } = useSession()
+    const { data: session } = useSession()
 
     const submitHandler = async (e) => {
         e.preventDefault()
