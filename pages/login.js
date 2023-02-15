@@ -25,9 +25,9 @@ const login = () => {
         const { data } = await axios.post(`/api/userLogin`, { email, password }, config)
 
         console.log('DATA:', data)
-
         cookie.set('token', data?.token)
         cookie.set('user', JSON.stringify(data?.user))
+
     }
 
     const logOutHandler = async () => {
