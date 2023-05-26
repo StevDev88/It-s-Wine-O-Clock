@@ -15,6 +15,7 @@ const login = () => {
     const router = useRouter()
 
     const { data: session } = useSession()
+    console.log(session)
 
     const submitHandler = async (e) => {
         e.preventDefault()
