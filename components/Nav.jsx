@@ -25,8 +25,8 @@ const UserEmail = dynamic(() => import('../components/UserEmail'), {
 })
 
 
-const pages = ['Login', 'Sign Up', 'My Wines', 'Home'];
-const pageUrls = ['login', 'register', '', '/']
+const pages = ['Home', 'Friends', 'My Wines', 'Login', 'Sign Up',];
+const pageUrls = ['/', 'friends', 'wineList', 'login', 'register']
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
