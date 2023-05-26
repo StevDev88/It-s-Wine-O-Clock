@@ -126,12 +126,9 @@ function ResponsiveAppBar() {
                             ))}
                         </Menu>
                     </Box>
-                    <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-                    <Link
+                    <Typography
                         variant="h5"
                         noWrap
-                        component={NextLink}
-                        href="/"
                         sx={{
                             mr: 2,
                             display: { xs: 'flex', md: 'none' },
@@ -142,8 +139,23 @@ function ResponsiveAppBar() {
                             color: 'inherit',
                             textDecoration: 'none',
                         }}>
-                        Wine O'Clock
-                    </Link>
+                        <Link
+                            component={NextLink}
+                            href="/"
+                            color="inherit"
+                            underline='none'
+                        >
+                            <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+                        </Link>
+                        <Link
+                            component={NextLink}
+                            href="/"
+                            color="inherit"
+                            underline='none'
+                        >
+                            Wine O'Clock
+                        </Link>
+                    </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page, index) => (
                             <Link
@@ -161,8 +173,13 @@ function ResponsiveAppBar() {
                             </Link>
                         ))}
                     </Box>
+
+
                     <UserEmail />
-                    {/* <Box sx={{ flexGrow: 0 }}>
+
+
+
+                    {user ? (<Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
@@ -190,7 +207,12 @@ function ResponsiveAppBar() {
                                 </MenuItem>
                             ))}
                         </Menu>
-                    </Box> */}
+                    </Box>) : <Box></Box>}
+
+
+
+
+
                 </Toolbar>
             </Container>
         </AppBar>
