@@ -45,12 +45,7 @@ const login = () => {
 
 
     if (session) {
-        return (
-            <>
-                Signed in as {session.user.email} <br />
-                <button onClick={logOutHandler}>Sign out</button>
-            </>
-        )
+        router.push('/')
     }
     return (
         <>
