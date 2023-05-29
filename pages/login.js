@@ -3,6 +3,7 @@ import cookie from "js-cookie"
 
 import { useState } from "react"
 import { useRouter } from "next/router"
+import { parseCookies } from "nookies"
 import { useSession, signIn, signOut } from "next-auth/react"
 
 // import styles from '../styles/login.module.css'
@@ -15,7 +16,9 @@ const login = () => {
     const router = useRouter()
 
     const { data: session } = useSession()
-    console.log(session)
+    const cookies = parseCookies()
+
+    const user = cookies?.user ? JSON.parse(cookies.user) : ""
 
     const submitHandler = async (e) => {
         e.preventDefault()
@@ -44,7 +47,7 @@ const login = () => {
     }
 
 
-    if (session) {
+    if (session || user) {
         router.push('/')
     }
     return (
