@@ -32,9 +32,9 @@ const pageUrls = ['/', 'friends', 'wineList', 'login', 'register'];
 function ResponsiveAppBar() {
 
     const cookies = parseCookies()
-    const session = useSession()
+    const { data: session } = useSession()
 
-    const user = cookies?.user ? JSON.parse(cookies.user) : ""
+    const user = cookies?.user ? JSON.parse(cookies.user) : session?.user ? session?.user : ''
 
 
     // console.log("COOKIES:", cookies)
