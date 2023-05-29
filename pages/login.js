@@ -38,15 +38,6 @@ const login = () => {
         router.push('/')
     }
 
-    const logOutHandler = async () => {
-        if (session) {
-            signOut()
-        }
-        cookie.remove('token')
-        cookie.remove('user')
-    }
-
-
     if (session || user) {
         router.push('/')
     }
