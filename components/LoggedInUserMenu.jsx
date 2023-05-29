@@ -10,6 +10,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { parseCookies } from 'nookies';
 import { useSession, signOut } from 'next-auth/react';
 import cookie from "js-cookie"
+import { useRouter} from 'next/router';
 
 
 
@@ -20,6 +21,7 @@ const LoggedInUserMenu = () => {
 
     const cookies = parseCookies()
     const session = useSession()
+    const router = useRouter()
 
     const user = cookies?.user ? JSON.parse(cookies.user) : ""
 
@@ -48,6 +50,7 @@ const LoggedInUserMenu = () => {
         }
         cookie.remove('token')
         cookie.remove('user')
+        router.push('/login')
     }
 
     return (
