@@ -47,9 +47,8 @@ const login = () => {
     }
 
 
-    if (session || user) {
-        router.push('/')
-    }
+    if (!session && !user) {
+
     return (
         <>
             Not signed in
@@ -68,6 +67,11 @@ const login = () => {
 
             <button onClick={() => signIn('google')}>Sign in with Google</button>
         </>
-    )
+        )}
+        
+        router.push('/')        
 }
+
+
+
 export default login
