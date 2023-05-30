@@ -38,9 +38,6 @@ const login = () => {
         router.push('/')
     }
 
-    if (session || user) {
-        router.push('/')
-    }
     return (
         <>
             Not signed in
