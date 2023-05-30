@@ -50,7 +50,6 @@ const LoggedInUserMenu = () => {
         }
         cookie.remove('token')
         cookie.remove('user')
-        router.push('/login')
     }
 
     return (

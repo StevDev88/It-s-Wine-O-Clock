@@ -17,28 +17,18 @@ import { parseCookies } from 'nookies';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 
-import dynamic from 'next/dynamic'
 
-const UserEmail = dynamic(() => import('../components/UserEmail'), {
-    ssr: false,
-})
-const LoggedInUserMenu = dynamic(() => import('../components/LoggedInUserMenu'), {
-    ssr: false,
-})
+// const pages = ['Home', 'Friends', 'My Wines',];
+// const pageUrls = ['/', 'friends', 'wineList',];
 
-// const pages = ['Home', 'Friends', 'My Wines', 'Log In', 'Sign Up',];
-// const pageUrls = ['/', 'friends', 'wineList', 'login', 'register'];
+const LogInNavLinks = ['Sign Up', 'Log In']
+const LogInNavUrls = ['register', 'login']
 
-const pages = ['Home', 'Friends', 'My Wines',]
-const pageUrls = ['/', 'friends', 'wineList',]
-
-function ResponsiveAppBar() {
+const LogInNav = () => {
 
     const cookies = parseCookies()
     const { data: session } = useSession()
     const router = useRouter()
-
-    const user = cookies?.user ? JSON.parse(cookies.user) : session?.user ? session?.user : ''
 
 
     // console.log("COOKIES:", cookies)
@@ -116,12 +106,12 @@ function ResponsiveAppBar() {
                                 display: { xs: 'block', md: 'none' },
                             }}
                         >
-                            {pages.map((page, index) => (
-                                <Link key={pageUrls[index]}
+                            {LogInNavLinks.map((page, index) => (
+                                <Link key={LogInNavUrls[index]}
                                     underline='hover'
                                     textAlign="center"
                                     component={NextLink}
-                                    href={pageUrls[index]}
+                                    href={LogInNavUrls[index]}
                                 >
                                     <MenuItem key={page} onClick={handleCloseNavMenu}>
                                         {page}
@@ -161,11 +151,11 @@ function ResponsiveAppBar() {
                         </Link>
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        {pages.map((page, index) => (
+                        {LogInNavLinks.map((page, index) => (
                             <Link
-                                key={pageUrls[index]}
+                                key={LogInNavLinks[index]}
                                 component={NextLink}
-                                href={pageUrls[index]}
+                                href={LogInNavUrls[index]}
                             >
                                 <Button
                                     key={page}
@@ -177,14 +167,39 @@ function ResponsiveAppBar() {
                             </Link>
                         ))}
                     </Box>
-                    <UserEmail />
-
-                    {user ? <LoggedInUserMenu /> : ''}
-
-
                 </Toolbar>
             </Container>
         </AppBar>
     );
 }
-export default ResponsiveAppBar;
+
+
+
+
+
+
+
+
+
+
+
+
+    // {needLoginNav.map((page, index) => (
+    //     <Link
+    //         key={needLoginNavUrls[index]}
+    //         underline='hover'
+    //         textAlign='center'
+    //         component={NextLink}
+    //         href={needLoginNavUrls[index]}
+    //     >
+    //         <MenuItem
+    //             key={needLoginNav}
+    //             onClick={handleCloseNavMenu}
+    //         >
+    //             {page}
+    //         </MenuItem>
+    //     </Link>
+    // ))}
+
+
+export default LogInNav
