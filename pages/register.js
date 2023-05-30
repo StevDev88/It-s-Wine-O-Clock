@@ -16,7 +16,9 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import NextLink from 'next/link'
-
+import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
+import { parseCookies } from "nookies";
 
 const defaultTheme = createTheme();
 
@@ -43,6 +45,16 @@ export default function SignUp() {
 
     }
 
+    const router = useRouter()
+
+    const { data: session } = useSession()
+    const cookies = parseCookies()
+
+    const user = cookies?.user ? JSON.parse(cookies.user) : ""
+
+    if (session || user) {
+        router.push('/')
+    }
 
   return (
     <ThemeProvider theme={defaultTheme}>
