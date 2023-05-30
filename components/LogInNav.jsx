@@ -105,22 +105,9 @@ const LogInNav = () => {
                             color: 'inherit',
                             textDecoration: 'none',
                         }}>
-                        <Link
-                            component={NextLink}
-                            href="/"
-                            color="inherit"
-                            underline='none'
-                        >
                             <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-                        </Link>
-                        <Typography
-                            component={NextLink}
-                            href=""
-                            color="inherit"
-                            underline='none'
-                        >
+
                             Wine O'Clock
-                        </Typography>
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {LogInNavLinks.map((page, index) => (
