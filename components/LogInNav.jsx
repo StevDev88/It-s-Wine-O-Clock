@@ -13,28 +13,10 @@ import AdbIcon from '@mui/icons-material/Adb';
 import NextLink from 'next/link'
 import { Link } from '@mui/material';
 
-import { parseCookies } from 'nookies';
-import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
-
-
-// const pages = ['Home', 'Friends', 'My Wines',];
-// const pageUrls = ['/', 'friends', 'wineList',];
-
 const LogInNavLinks = ['Sign Up', 'Log In']
 const LogInNavUrls = ['register', 'login']
 
 const LogInNav = () => {
-
-    const cookies = parseCookies()
-    const { data: session } = useSession()
-    const router = useRouter()
-
-
-    // console.log("COOKIES:", cookies)
-    // console.log("USER:", user)
-    // console.log('SESSION:', session)
-
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
 
@@ -164,34 +146,5 @@ const LogInNav = () => {
         </AppBar>
     );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-    // {needLoginNav.map((page, index) => (
-    //     <Link
-    //         key={needLoginNavUrls[index]}
-    //         underline='hover'
-    //         textAlign='center'
-    //         component={NextLink}
-    //         href={needLoginNavUrls[index]}
-    //     >
-    //         <MenuItem
-    //             key={needLoginNav}
-    //             onClick={handleCloseNavMenu}
-    //         >
-    //             {page}
-    //         </MenuItem>
-    //     </Link>
-    // ))}
-
 
 export default LogInNav
