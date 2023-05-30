@@ -33,11 +33,9 @@ const LogInNav = () => {
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-                    <Link
+                    <Typography
                         variant="h6"
                         noWrap
-                        component={NextLink}
-                        href="/"
                         sx={{
                             mr: 2,
                             display: { xs: 'none', md: 'flex' },
@@ -49,7 +47,7 @@ const LogInNav = () => {
                         }}
                     >
                         Wine O'Clock
-                    </Link>
+                    </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
@@ -115,14 +113,14 @@ const LogInNav = () => {
                         >
                             <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
                         </Link>
-                        <Link
+                        <Typography
                             component={NextLink}
-                            href="/"
+                            href=""
                             color="inherit"
                             underline='none'
                         >
                             Wine O'Clock
-                        </Link>
+                        </Typography>
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {LogInNavLinks.map((page, index) => (
