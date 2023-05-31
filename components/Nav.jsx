@@ -31,7 +31,7 @@ const LoggedInUserMenu = dynamic(() => import('../components/LoggedInUserMenu'),
 const pages = ['Home', 'Friends', 'My Wines',]
 const pageUrls = ['/', 'friends', 'wineList',]
 
-function ResponsiveAppBar() {
+function Nav() {
 
     const cookies = parseCookies()
     const { data: session } = useSession()
@@ -186,4 +186,4 @@ function ResponsiveAppBar() {
         </AppBar>
     );
 }
-export default ResponsiveAppBar;
+export default Nav;
