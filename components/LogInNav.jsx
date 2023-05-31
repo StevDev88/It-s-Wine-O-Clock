@@ -105,8 +105,14 @@ const LogInNav = () => {
                             color: 'inherit',
                             textDecoration: 'none',
                         }}>
-                            
-                            <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+
+                            <AdbIcon
+                                sx={{
+                                display: { xs: 'flex', md: 'none' },
+                                mr: 1,
+                                marginTop: .5,
+                                }}
+                                />
 
                             Wine O'Clock
                     </Typography>
