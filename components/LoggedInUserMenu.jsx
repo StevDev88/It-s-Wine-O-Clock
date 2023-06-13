@@ -13,7 +13,7 @@ import cookie from "js-cookie"
 
 
 
-const settings = ['Profile', 'Account', 'Logout']
+const settings = ['Profile']
 
 
 const LoggedInUserMenu = () => {
