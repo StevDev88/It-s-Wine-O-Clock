@@ -8,15 +8,14 @@ import Menu from '@mui/material/Menu';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import NextLink from 'next/link'
-import { Link } from '@mui/material';
 
 import { parseCookies } from 'nookies';
-import { useSession } from 'next-auth/react';
+import { useSession, signOut } from 'next-auth/react';
+import cookie from "js-cookie"
 
 
 
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Profile', 'Account', 'Logout']
 
 
 const LoggedInUserMenu = () => {
@@ -44,6 +43,14 @@ const LoggedInUserMenu = () => {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
+
+    const logOutHandler = async () => {
+        if (session) {
+            signOut()
+        }
+        cookie.remove('token')
+        cookie.remove('user')
+    }
 
     return (
         <>
@@ -74,6 +81,9 @@ const LoggedInUserMenu = () => {
                             <Typography textAlign="center">{setting}</Typography>
                         </MenuItem>
                     ))}
+                        <MenuItem>
+                        <Typography onClick={logOutHandler}>Sign out</Typography>
+                        </MenuItem>
                 </Menu>
             </Box>
         </>
