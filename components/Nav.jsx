@@ -17,6 +17,7 @@ import { parseCookies } from 'nookies';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 
+
 import dynamic from 'next/dynamic'
 
 const UserEmail = dynamic(() => import('../components/UserEmail'), {
@@ -26,8 +27,6 @@ const LoggedInUserMenu = dynamic(() => import('../components/LoggedInUserMenu'),
     ssr: false,
 })
 
-// const pages = ['Home', 'Friends', 'My Wines', 'Log In', 'Sign Up',];
-// const pageUrls = ['/', 'friends', 'wineList', 'login', 'register'];
 
 const pages = ['Home', 'Friends', 'My Wines',]
 const pageUrls = ['/', 'friends', 'wineList',]

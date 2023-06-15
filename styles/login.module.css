@@ -1,0 +1,7 @@
+.formBackground {
+    background-color: white;
+    border: 1px solid maroon;
+    padding: 12px;
+    padding-bottom: 25px;
+    border-radius: 5%;
+}

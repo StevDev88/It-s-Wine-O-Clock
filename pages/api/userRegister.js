@@ -8,17 +8,19 @@ export default async (req, res) => {
 
     try {
         if (req.method === 'POST') {
-            const { email, password } = req.body
+            const { firstName, lastName, email, password } = req.body
             const user = await User.findOne({ email: email })
 
             if (user) {
                 res.status(422).json({ message: "User already exists." })
             }
 
-            console.log(email, password)
+            console.log(firstName, lastName, email, password)
 
             const hashedPassword = await bcrypt.hash(password, 12)
             const newUser = await new User({
+                firstName: firstName,
+                lastName: lastName,
                 email: email,
                 password: hashedPassword
             }).save()
