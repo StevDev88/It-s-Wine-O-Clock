@@ -23,6 +23,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { toast } from "react-toastify"
 
 const defaultTheme = createTheme()
 
@@ -41,7 +42,8 @@ const login = () => {
     const submitHandler = async (e) => {
         e.preventDefault()
 
-        const config = {
+        try {
+            const config = {
             headers: {
                 "Content-Type": "application/json"
             },
@@ -49,11 +51,22 @@ const login = () => {
 
         const { data } = await axios.post(`/api/userLogin`, { email, password }, config)
 
-        console.log('DATA:', data)
+        // console.log('DATA:', data)
+
         cookie.set('token', data?.token)
         cookie.set('user', JSON.stringify(data?.user))
 
         router.push('/')
+
+        toast.success("Log in successful!")
+
+        } catch (error) {
+
+            toast.error(error.response.data.message)
+
+        }
+
+
     }
 
     if (session || user) {

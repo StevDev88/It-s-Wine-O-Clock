@@ -8,6 +8,8 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { CacheProvider } from '@emotion/react';
 import theme from '../config/theme';
 import createEmotionCache from '../config/createEmotionCache';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -23,6 +25,7 @@ export default function MyApp({ Component, emotionCache = clientSideEmotionCache
                 <ThemeProvider theme={theme}>
                     <CssBaseline />
                     <Layout>
+                        <ToastContainer />
                         <Component {...pageProps} />
                     </Layout>
                 </ThemeProvider>

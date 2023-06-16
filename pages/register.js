@@ -19,6 +19,7 @@ import NextLink from 'next/link'
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
 import { parseCookies } from "nookies";
+import { toast } from "react-toastify";
 
 const defaultTheme = createTheme();
 
@@ -27,22 +28,37 @@ export default function SignUp() {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
+
+
 
     const submitHandler = async (e) => {
         e.preventDefault()
 
-        const config = {
-            headers: {
-                "Content-Type": "application/json"
-            },
+        try {
+
+            if (password !== confirmPassword) {
+                toast.error("Passwords do not match.")
+                return
+            }
+
+            const config = {
+                headers: {
+                    "Content-Type": "application/json"
+                },
+            }
+
+            const { data } = await axios.post(`/api/userRegister`, { firstName, lastName, email, password }, config)
+
+            toast.success(data?.message)
+
+        } catch (error) {
+
+            toast.error(error.response.data.message)
+
         }
-
-        const { data } = await axios.post(`/api/userRegister`, { firstName, lastName, email, password }, config)
-
-        console.log(data)
-
     }
 
     const router = useRouter()
@@ -122,9 +138,20 @@ export default function SignUp() {
                   label="Password"
                   type="password"
                   id="password"
-                  autoComplete="new-password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="confirmPassword"
+                  label="Confirm Password"
+                  type="password"
+                  id="confirmPassword"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
                 />
               </Grid>
             </Grid>

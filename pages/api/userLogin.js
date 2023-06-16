@@ -11,7 +11,7 @@ export default async (req, res) => {
 
     try {
         if (!email || !password) {
-            return res.status(422).json({ error: "Please fill out all fields." })
+            return res.status(422).json({ message: "Please fill out all fields." })
         }
 
         const user = await User.findOne({ email })
