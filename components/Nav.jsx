@@ -29,7 +29,7 @@ const LoggedInUserMenu = dynamic(() => import('../components/LoggedInUserMenu'),
 
 
 const pages = ['Home', 'Friends', 'My Wines',]
-const pageUrls = ['/', 'friends', 'wineList',]
+const pageUrls = ['/', '/friends', '/wineList',]
 
 function Nav() {
 

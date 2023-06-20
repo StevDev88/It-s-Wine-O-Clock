@@ -14,7 +14,7 @@ import NextLink from 'next/link'
 import { Link } from '@mui/material';
 
 const LogInNavLinks = ['Sign Up', 'Log In']
-const LogInNavUrls = ['register', 'login']
+const LogInNavUrls = ['/register', '/login']
 
 const LogInNav = () => {
 

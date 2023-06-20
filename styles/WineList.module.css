@@ -1,0 +1,31 @@
+.fullWineList {
+    width: fit-content;
+    margin: 10px auto;
+}
+
+.h1 {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.ul {
+    list-style-type: none;
+    display: block;
+}
+
+.img {
+    max-height: 150px;
+}
+
+.individualWine {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d5d5d5;
+    background-color: white
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3vh;
+}

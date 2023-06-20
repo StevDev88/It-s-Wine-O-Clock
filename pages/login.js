@@ -147,7 +147,17 @@ const login = () => {
         </Box>
       </Container>
     </ThemeProvider>
+
+
+    
+    {/* Integrate new Google auth after building main app functionality. */}
+
     <button onClick={() => signIn('google')}>Sign in with Google</button>
+
+
+
+
+
     </>
     )
 }
