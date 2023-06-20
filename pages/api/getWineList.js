@@ -3,9 +3,9 @@ import clientPromise from "../../lib/mongodb";
 export default async (req, res) => {
   try {
     const client = await clientPromise;
-    const db = client.db("test");
+    const db = client.db("wines");
 
-    const wines = await db.collection("users").find({}).limit(20).toArray();
+    const wines = await db.collection("wines").find({}).limit(5).toArray();
 
     res.json(wines);
   } catch (e) {
