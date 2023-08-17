@@ -8,10 +8,8 @@ export default async (req, res) => {
     const { id } = req.query;
 
     const wine = await db.collection("wines").findOne({
-      _id: ObjectId(id),
+      _id: new ObjectId(id),
     });
-
-    console.log(_id)
 
     res.json(wine);
   } catch (e) {

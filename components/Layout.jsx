@@ -1,19 +1,19 @@
-import { Container } from "@mui/material"
+import styles from "../styles/Layout.module.css"
+
+import Container from "@mui/material/Container"
 import Header from "./Header"
 
-import styles from '../styles/Layout.module.css'
-
 const Layout = ({ children }) => {
-    return (
-        <>
-            <div>
-                <Container className={styles.div}>
-                    <Header />
-                    {children}
-                </Container>
-            </div>
-        </>
-    )
+	return (
+		<>
+			<div>
+				<Container className={styles.div}>
+					<Header />
+					{children}
+				</Container>
+			</div>
+		</>
+	)
 }
 
 export default Layout

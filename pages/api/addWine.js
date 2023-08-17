@@ -11,7 +11,7 @@ export default async (req, res) => {
     //   return rest;
     // });
 
-    await db.collection("wines").insertOne(wine);
+    await db.collection("user-wines").insertOne(wine);
 
     res.json(wine);
   } catch (e) {

@@ -5,13 +5,11 @@ export default async (req, res) => {
   try {
     const client = await clientPromise;
     const db = client.db("wines");
-    const { wineId } = req.query;
+    const { id } = req.query;
 
-    const wine = await db.collection("wines").deleteOne({
-      id: wineId,
+    const wine = await db.collection("user-wines").deleteOne({
+      _id: new ObjectId(id),
     });
-
-    console.log("Wine Deleted")
 
     res.json(wine);
   } catch (e) {

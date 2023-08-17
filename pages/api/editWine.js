@@ -8,8 +8,6 @@ export default async (req, res) => {
     const { id } = req.query;
     const wine = req.body;
 
-    console.log("ID:", id, "WINE:", wine)
-
     if (req.method !== "PUT") {
       return res.status(405).json({ message: "Method not allowed" });
     }
@@ -20,7 +18,7 @@ export default async (req, res) => {
 
     await db.collection("wines").updateOne(
       {
-        _id: ObjectId(id),
+        _id: new ObjectId(id),
       },
       {
         $set: {

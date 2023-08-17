@@ -1,13 +1,7 @@
-import axios from "axios"
-import cookie from "js-cookie"
-
-import { useState } from "react"
-import { useRouter } from "next/router"
-import { parseCookies } from "nookies"
-import { useSession, signIn, signOut } from "next-auth/react"
-
 import styles from '../styles/login.module.css'
 
+import axios from "axios"
+import cookie from "js-cookie"
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -24,6 +18,11 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { toast } from "react-toastify"
+
+import { useState } from "react"
+import { useRouter } from "next/router"
+import { parseCookies } from "nookies"
+import { useSession, signIn, signOut } from "next-auth/react"
 
 const defaultTheme = createTheme()
 
